@@ -16,6 +16,11 @@ class Solution
 
         for (int i = 0; i < n; ++i)
         {
+            /*
+            1. Check Empty
+            2. Compare
+            * Order matters            
+            */
             while (!st.empty() && temperatures[i] > temperatures[st.top()])
             {
                 int prev = st.top();
