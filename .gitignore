@@ -3,5 +3,5 @@ build
 *.exe
 
 # Cache
-cache
+.cache
 .DS_Store
