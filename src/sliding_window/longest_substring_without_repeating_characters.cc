@@ -1,28 +1,25 @@
-#include "deps.h"
-
 #include <cstring>
 
-class Solution
-{
-  public:
-    int lengthOfLongestSubstring(string s)
-    {
-        int jump_table[128]; // Jump table for left pointer.
-        memset(jump_table, 0, sizeof(jump_table));
+#include "deps.h"
 
-        int max_len = 0;
-        int left = 0;
+class Solution {
+ public:
+  int lengthOfLongestSubstring(string s) {
+    int jump_table[128];  // Jump table for left pointer.
+    memset(jump_table, 0, sizeof(jump_table));
 
-        for (int right = 0; right < s.size(); ++right)
-        {
-            auto right_c = s[right];
+    int max_len = 0;
+    int left = 0;
 
-            left = max(left, jump_table[right_c]);
-            max_len = max(max_len, right - left + 1);
+    for (int right = 0; right < s.size(); ++right) {
+      auto right_c = s[right];
 
-            jump_table[right_c] = right + 1;
-        }
+      left = max(left, jump_table[right_c]);
+      max_len = max(max_len, right - left + 1);
 
-        return max_len;
+      jump_table[right_c] = right + 1;
     }
+
+    return max_len;
+  }
 };
